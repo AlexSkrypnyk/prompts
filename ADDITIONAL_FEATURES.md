@@ -3,6 +3,7 @@
 The following features have been added to this fork of Laravel Prompts:
 
 - [Added description support](#added-description-support)
+- [Added passing of the value to $validateUsing callable](#added-passing-of-the-value-to-validateusing-callable)
 - [Allow static validator to run before prompt's validator](#allow-static-validator-to-run-before-prompts-validator)
 
 ## Added description support
@@ -86,6 +87,18 @@ text(label: 'Name', placeholder: 'Enter name');
 // After (backwards compatible)
 text(label: 'Name', placeholder: 'Enter name', description: 'Your full name as it appears on official documents.');
 ```
+
+## Added passing of the value to $validateUsing callable
+
+PR: https://github.com/AlexSkrypnyk/prompts/pull/3
+
+Prompt's `validate()` receives the `$value` as a first argument.
+
+The `static::$validateUsing` override callback, however, does not receive a
+`$value`.
+
+This change aligns the behaviour by fixing the inconsistency in how callbacks
+are handled.
 
 ## Allow static validator to run before prompt's validator
 

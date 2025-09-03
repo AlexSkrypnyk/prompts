@@ -403,7 +403,7 @@ abstract class Prompt
         }
 
         $error = match (true) {
-            isset(static::$validateUsing) => (static::$validateUsing)($this),
+            isset(static::$validateUsing) => (static::$validateUsing)($this, $value),
             is_callable($this->validate) => ($this->validate)($value),
             default => throw new RuntimeException('The validation logic is missing.'),
         };

@@ -7,6 +7,53 @@
 <a href="https://packagist.org/packages/laravel/prompts"><img src="https://img.shields.io/packagist/l/laravel/prompts" alt="License"></a>
 </p>
 
+## About this fork
+
+This is a fork of the original Laravel Prompts package, modified to support 
+additional features and use cases. See [`ADDITIONAL_FEATURES.md`](ADDITIONAL_FEATURES.md)
+for a list of changes and enhancements made in this fork.
+
+I pledge to maintain this fork and keep it up to date with the latest changes 
+from the original repository.
+
+### Installation
+
+Installed via Composer:
+
+Add the following to your `composer.json` file under the `repositories` section:
+
+```json
+{
+    "type": "vcs",
+    "url": "https://github.com/AlexSkrypnyk/prompts.git",
+    "canonical": true
+}
+```
+Then run:
+
+```bash
+composer require laravel/prompts
+```
+
+### Versioning Policy
+
+This fork follows the upstream project closely while providing additional
+patches. To ensure compatibility with Composer and standard Semantic
+Versioning (SemVer), releases in this fork are always published under the same
+major and minor versions as upstream, with only the patch number incremented.
+
+For example, if upstream’s latest release is `v0.3.6` and this fork introduces
+extra fixes before upstream publishes a new version, the fork will tag its
+release as `v0.3.7`. If upstream later publishes `v0.3.7`, the fork will move
+forward and release `v0.3.8`. This way, patch numbers always increase
+sequentially, avoiding conflicts with upstream tags and guaranteeing a clear
+upgrade path.
+
+Consumers requiring this fork simply add it as a VCS repository and keep using
+the upstream package name. Composer will then resolve dependencies to the fork,
+and applications using a constraint such as `^0.3` will transparently receive 
+the patched releases without needing to change version requirements.
+
 ## Introduction
 
 Laravel Prompts is a PHP package for adding beautiful and user-friendly forms to your command-line applications, with browser-like features including placeholder text and validation.

@@ -9,6 +9,10 @@
 
 ## About this fork
 
+[![tests](https://github.com/AlexSkrypnyk/prompts/actions/workflows/tests.yml/badge.svg)](https://github.com/AlexSkrypnyk/prompts/actions/workflows/tests.yml)
+![GitHub release](https://img.shields.io/github/v/release/AlexSkrypnyk/prompts?logo=github)
+![LICENSE](https://img.shields.io/github/license/AlexSkrypnyk/prompts)
+
 This is a fork of the original Laravel Prompts package, modified to support 
 additional features and use cases. See [`ADDITIONAL_FEATURES.md`](ADDITIONAL_FEATURES.md)
 for a list of changes and enhancements made in this fork.

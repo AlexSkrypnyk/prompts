@@ -313,3 +313,35 @@ Use the arrow keys to navigate between options and press Enter when you have fin
     Prompt::assertOutputContains('Use the arrow keys to navigate between options and press');
     Prompt::assertOutputContains('Enter when you have finished making your selections.');
 });
+
+it('selects all options when a default is provided', function () {
+    Prompt::fake([Key::CTRL_A, Key::ENTER]);
+
+    $result = multiselect(
+        label: 'What are your favorite colors?',
+        options: [
+            'red' => 'Red',
+            'green' => 'Green',
+            'blue' => 'Blue',
+        ],
+        default: ['red']
+    );
+
+    expect($result)->toBe(['red', 'green', 'blue']);
+});
+
+it('deselects all when all options are already default', function () {
+    Prompt::fake([Key::CTRL_A, Key::ENTER]);
+    
+    $result = multiselect(
+        label: 'What are your favorite colors?',
+        options: [
+            'red' => 'Red',
+            'green' => 'Green',
+            'blue' => 'Blue',
+        ],
+        default: ['red', 'green', 'blue']
+    );
+    
+    expect($result)->toBe([]);
+});
